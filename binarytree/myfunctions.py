@@ -15,6 +15,41 @@ def inOrder(temp:Node):
     print(temp.data,end = " ")
     inOrder(temp.right)
 
+#Preorder traversal.
+def preOrder(temp:Node):
+
+    if not temp:
+        return
+    
+    print(temp.data,end=" ")
+    preOrder(temp.left)
+    preOrder(temp.right)
+
+
+#Postorder traversal.
+def postOrder(temp:Node):
+
+    if not temp:
+        return
+    
+    postOrder(temp.left)
+    postOrder(temp.right)
+    print(temp.data,end=" ")
+
+def maxDepth(root:Node):
+
+    if root is None:
+        return 0
+
+    else:
+        lDepth = maxDepth(root.left)
+        rDepth = maxDepth(root.right)
+
+        if(lDepth>rDepth):
+            return lDepth+1
+        else:
+            return rDepth+1
+
 #Delete Deepest Node in the tree.
 def deleteDeepest(root:Node,d_node:Node):
     q = []
